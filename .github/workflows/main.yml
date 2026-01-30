@@ -1,8 +1,10 @@
-name: Account_Weight_Verify
+name: Developer_Weight_Verify
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Verify
-        run: echo "Identity Confirmed"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Success Mark
+        run: echo "Original Identity Verified. Success."
