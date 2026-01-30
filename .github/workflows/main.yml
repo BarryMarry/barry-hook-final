@@ -1,10 +1,12 @@
-name: Developer_Weight_Verify
-on: [push]
+name: Continuous_Activity_Check
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * *' # 每天北京时间早上8点自动运行一次
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Success Mark
-        run: echo "Original Identity Verified. Success."
+      - uses: actions/checkout@v4
+      - name: Heartbeat
+        run: echo "Activity verified at $(date)"
